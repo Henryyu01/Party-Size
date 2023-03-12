@@ -1,17 +1,19 @@
-import { Box, Grid, ListItem, ListItemText } from "@mui/material"
+import { Box, Card, CardContent, Grid, ListItem, ListItemText, Typography } from "@mui/material"
 
 
 const GameRow = ({key, title, minPlayer, maxPlayer}) => {
 
     return(
-        <div>
-            <ListItem>
-                <ListItemText 
-                    primary = {title} 
-                    secondary = {('min: ' + minPlayer + ', max: ' + maxPlayer)}
-                />
-            </ListItem>
-        </div>
+        <Card>
+            <CardContent>
+                <Typography>
+                    {title}
+                </Typography>
+                <Typography>
+                    {minPlayer}
+                </Typography>
+            </CardContent>
+        </Card>
     )
 }
 

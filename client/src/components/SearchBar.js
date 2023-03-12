@@ -1,17 +1,43 @@
-import { IconButton, TextField } from '@mui/material';
+import { Icon, IconButton, InputBase, styled, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Stack } from '@mui/system';
+import PlayerSlider from './PlayerSlider';
 
-const SearchBar = ({searchText, onSearchTextChanged, onSearchClick}) => {
+const SearchContainer = styled('div')({
+  position: 'relative',
+  padding: 8,
+  backgroundColor: 'lightgrey',
+  borderRadius: 4,
+  display: 'flex',
+});
+
+const SearchIconContainer = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: 4,
+})
+
+const SearchBar = ({
+  searchText, 
+  onSearchTextChanged, 
+  onSearchClick,
+  sliderValue,
+  onSliderValueChanged,
+}) => {
 
   return (
-    <div className="Search">
+    <div>
       <Stack direction="row" spacing={2}>
-        <TextField
-          id = "search-bar"
-          value = {searchText}
-          onChange = {onSearchTextChanged} 
-          variant="outlined"
+        <SearchContainer>
+          <SearchIconContainer>
+            <SearchIcon/>
+          </SearchIconContainer>
+          <InputBase/>
+        </SearchContainer>
+        <PlayerSlider
+          value = {sliderValue}
+          onValueChanged = {onSliderValueChanged}
         />
         <IconButton
           onClick = {onSearchClick}
